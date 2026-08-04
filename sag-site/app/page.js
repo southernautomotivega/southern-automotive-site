@@ -41,7 +41,7 @@ export default async function HomePage() {
 
       <CTABanner
         title="Ready to find your next vehicle?"
-        subtitle="Browse what's on the lot right now, or call and we'll help you find the right fit."
+        subtitle="Browse what's on the lot right now, or call and we'll help you find what you are on the hunt for."
         primaryLabel="Browse Inventory"
         primaryHref="/inventory"
       />
@@ -92,7 +92,7 @@ export default async function HomePage() {
       </section>
 
       <CTABanner
-        title="Got a trade-in, or just have questions?"
+        title="Got a trade-in, see something you like, or just have questions?"
         subtitle="We'll give you a straight answer — no pressure, no pushy sales calls."
         primaryLabel="Contact Us"
         primaryHref="/contact"
