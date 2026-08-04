@@ -6,8 +6,8 @@ import { getVehicles } from "@/lib/vehicles";
 import HeroSearch from "@/components/HeroSearch";
 
 const TESTIMONIALS = [
-  { name: "Micheal R.", quote: " The easiest and most honest vehicle purchase I’ve ever made. No pressure, fair pricing, and exactly what was promised. I’ll definitely be back, rating: 5 },
-  { name: "Ashley T.", quote: "The vehicle was clean, well-maintained, and priced fairly. The entire process was smooth, and I couldn’t be happier with my purchase, rating: 5 },
+  { name: "Micheal R.", quote: " The easiest and most honest vehicle purchase I’ve ever made. No pressure, fair pricing, and exactly what was promised. I’ll definitely be back," rating: 5 },
+  { name: "Ashley T.", quote: "The vehicle was clean, well-maintained, and priced fairly. The entire process was smooth, and I couldn’t be happier with my purchase", rating: 5 },
   { name: "David W.", quote: "excellent customer service from start to finish. Nathan treated me with respect, answered every question, and made buying a vehicle completely stress-free. Highly recommend", rating: 5 },
 ];
 
