@@ -6,7 +6,7 @@ import { useSearchParams } from "next/navigation";
 // Replace this with your own Formspree endpoint (see README.md — takes ~2
 // minutes to set up, free tier is plenty for a single lot). Once set, every
 // submission emails you directly with no server or database to maintain.
-const FORMSPREE_ENDPOINT = "https://formspree.io/f/https://formspree.io/f/mbgrrrvo";
+const FORMSPREE_ENDPOINT = "https://formspree.io/f/mbgrrrvo";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -39,7 +39,7 @@ export default function ContactForm() {
       setSubmitted(true);
       setForm({ name: "", phone: "", email: "", message: "" });
     } catch {
-      setError("Something went wrong sending your message. Please call us instead.");
+      setError("Something went wrong on our end. Please call us instead.");
     } finally {
       setSubmitting(false);
     }
