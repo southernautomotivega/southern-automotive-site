@@ -21,7 +21,7 @@ export default function Nav() {
     <header className="sticky top-0 z-30 bg-navy900 border-b border-white/5">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2 focus-ring">
-          <span className="font-display text-white text-base sm:text-xl font-semibold tracking-wide">
+          <span className="font-display text-white text-lg sm:text-2xl font-semibold tracking-wide">
             SOUTHERN <span className="text-brandOrange">AUTOMOTIVE GROUP</span>
           </span>
         </Link>
