@@ -24,7 +24,7 @@ export default async function HomePage() {
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-navy800 via-navy700 to-navy600">
         <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 font-body">
-          <Image src="/logo.png" alt="Southern Automotive Group" width={280} height={132} className="h-24 sm:h-28 w-auto mb-6" priority />
+          <Image src="/logo.png" alt="Southern Automotive Group" width={280} height={132} className="h-32 sm:h-40 w-auto mb-6" priority />
           <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">Clayton, Georgia · Rabun County</p>
           <h1 className="font-display text-4xl sm:text-6xl font-semibold leading-tight max-w-2xl text-white">
             Vehicles worth owning, and people worth trusting.
