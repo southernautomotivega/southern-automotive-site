@@ -14,7 +14,7 @@ export function TrustStrip() {
         {items.map(({ label, Icon }) => (
           <div key={label} className="flex items-center gap-2.5">
             <Icon size={17} color="#FDB813" />
-            <span className="text-xs sm:text-sm font-medium leading-tight text-[#D3D8E4]">{label}</span>
+            <span className="text-sm sm:text-base font-medium leading-tight text-[#D3D8E4]">{label}</span>
           </div>
         ))}
       </div>
