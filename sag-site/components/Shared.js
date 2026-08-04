@@ -3,10 +3,10 @@ import { ShieldCheck, Wallet, ClipboardCheck, Users, Phone, Star } from "lucide-
 
 export function TrustStrip() {
   const items = [
-    { label: "Every vehicle inspected", Icon: ShieldCheck },
-    { label: "Fair, marked pricing", Icon: Wallet },
-    { label: "Local financing options", Icon: ClipboardCheck },
-    { label: "Family owned & operated", Icon: Users },
+    { label: "Multi-Point Vehicle Inspections", Icon: ShieldCheck },
+    { label: "Transparent Market Pricing", Icon: Wallet },
+    { label: "Financing Options for Almost Every Credit Situation", Icon: ClipboardCheck },
+    { label: "Family Owned, Customer Focused", Icon: Users },
   ];
   return (
     <div className="bg-navy900">
