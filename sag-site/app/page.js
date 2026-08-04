@@ -6,15 +6,15 @@ import { getVehicles } from "@/lib/vehicles";
 import HeroSearch from "@/components/HeroSearch";
 
 const TESTIMONIALS = [
-  { name: "Sample Customer", quote: "Placeholder — swap in a real quote once your first reviews come in. Keep it short and specific to what they liked.", rating: 5 },
-  { name: "Sample Customer", quote: "Placeholder testimonial. Real customer names and quotes build far more trust than generic copy.", rating: 5 },
-  { name: "Sample Customer", quote: "Placeholder testimonial. Consider pulling your best Google or Facebook reviews here once you have them.", rating: 5 },
+  { name: "Micheal R.", quote: " The easiest and most honest vehicle purchase I’ve ever made. No pressure, fair pricing, and exactly what was promised. I’ll definitely be back, rating: 5 },
+  { name: "Ashley T.", quote: "The vehicle was clean, well-maintained, and priced fairly. The entire process was smooth, and I couldn’t be happier with my purchase, rating: 5 },
+  { name: "David W.", quote: "excellent customer service from start to finish. Nathan treated me with respect, answered every question, and made buying a vehicle completely stress-free. Highly recommend", rating: 5 },
 ];
 
 const STEPS = [
-  { step: "01", title: "Browse or ask", body: "Filter the lot yourself, or tell us what you need and we'll point you to the right fit." },
-  { step: "02", title: "See real numbers", body: "Get an out-the-door price and a payment estimate before you ever drive over." },
-  { step: "03", title: "Drive away", body: "Sign, get your keys, and go — most deals close same-day once financing is set." },
+  { step: "01", title: "Browse or ask", body: "Filter the lot yourself, or tell us what you need and we'll point you in the right direction." },
+  { step: "02", title: "See real numbers", body: "Get an out-the-door price and a payment estimate before you leave your driveway." },
+  { step: "03", title: "take er home", body: "Sign, get your keys, and go — most deals close same-day once financing is set." },
 ];
 
 export default async function HomePage() {
