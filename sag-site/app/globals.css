@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #FAF8F4;
+  color: #211F1A;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #F0791A;
+  outline-offset: 2px;
+}
