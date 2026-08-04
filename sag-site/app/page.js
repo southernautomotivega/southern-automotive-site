@@ -6,15 +6,15 @@ import { getVehicles } from "@/lib/vehicles";
 import HeroSearch from "@/components/HeroSearch";
 
 const TESTIMONIALS = [
-  { name: "Micheal R.", quote: "The easiest and most honest vehicle purchase I've ever made. No pressure, fair pricing, and exactly what was promised. I'll definitely be back.", rating: 5 },
-  { name: "Ashley T.", quote: "The vehicle was clean, well-maintained, and priced fairly. The entire process was smooth, and I couldn't be happier with my purchase.", rating: 5 },
-  { name: "David W.", quote: "Excellent customer service from start to finish. Nathan treated me with respect, answered every question, and made buying a vehicle completely stress-free. Highly recommend", rating: 5 },
+  { name: "Sample Customer", quote: "Placeholder — swap in a real quote once your first reviews come in. Keep it short and specific to what they liked.", rating: 5 },
+  { name: "Sample Customer", quote: "Placeholder testimonial. Real customer names and quotes build far more trust than generic copy.", rating: 5 },
+  { name: "Sample Customer", quote: "Placeholder testimonial. Consider pulling your best Google or Facebook reviews here once you have them.", rating: 5 },
 ];
 
 const STEPS = [
-  { step: "01", title: "Browse or ask", body: "Filter the lot yourself, or tell us what you need and we'll point you in the right direction." },
-  { step: "02", title: "See real numbers", body: "Get an out-the-door price and a payment estimate before you leave your driveway." },
-  { step: "03", title: "take er home", body: "Sign, get your keys, and go — most deals close same-day once financing is set." },
+  { step: "01", title: "Browse or ask", body: "Filter the lot yourself, or tell us what you need and we'll point you to the right fit." },
+  { step: "02", title: "See real numbers", body: "Get an out-the-door price and a payment estimate before you ever drive over." },
+  { step: "03", title: "Drive away", body: "Sign, get your keys, and go — most deals close same-day once financing is set." },
 ];
 
 export default async function HomePage() {
@@ -23,8 +23,8 @@ export default async function HomePage() {
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-navy800 via-navy700 to-navy600">
-        <div className="relative max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 font-body">
-          <Image src="/logo.png" alt="Southern Automotive Group" width={280} height={132} className="h-32 sm:h-40 w-auto mb-6" priority />
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 font-body">
+          <Image src="/logo.png" alt="Southern Automotive Group" width={560} height={265} className="h-16 sm:h-20 w-auto mb-6" priority />
           <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">Clayton, Georgia · Rabun County</p>
           <h1 className="font-display text-4xl sm:text-6xl font-semibold leading-tight max-w-2xl text-white">
             Vehicles worth owning, and people worth trusting.
@@ -41,7 +41,7 @@ export default async function HomePage() {
 
       <CTABanner
         title="Ready to find your next vehicle?"
-        subtitle="Browse what's on the lot right now, or call and we'll help you find what you are on the hunt for."
+        subtitle="Browse what's on the lot right now, or call and we'll help you find the right fit."
         primaryLabel="Browse Inventory"
         primaryHref="/inventory"
       />
@@ -92,7 +92,7 @@ export default async function HomePage() {
       </section>
 
       <CTABanner
-        title="Got a trade-in, see something you like, or just have questions?"
+        title="Got a trade-in, or just have questions?"
         subtitle="We'll give you a straight answer — no pressure, no pushy sales calls."
         primaryLabel="Contact Us"
         primaryHref="/contact"
