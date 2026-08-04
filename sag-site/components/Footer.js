@@ -2,9 +2,9 @@ import Link from "next/link";
 import { Facebook, Instagram, Video } from "lucide-react";
 
 const SOCIALS = [
-  { name: "Facebook", url: "https://www.facebook.com/southernautomotivegroup", Icon: Facebook },
+  { name: "Facebook", url: "https://www.facebook.com/southern automotive group llc", Icon: Facebook },
   { name: "Instagram", url: "https://www.instagram.com/southernautomotivegroup", Icon: Instagram },
-  { name: "TikTok", url: "https://www.tiktok.com/@southernautomotivegroup", Icon: Video },
+  { name: "TikTok", url: "https://www.tiktok.com/@southernautomotivega", Icon: Video },
 ];
 
 export default function Footer() {
