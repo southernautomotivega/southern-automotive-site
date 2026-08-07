@@ -39,7 +39,7 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
     let list = vehicles.filter((v) => (typeFilter === "All" || v.type === typeFilter) && v.price <= maxPrice);
     if (query.trim()) {
       const q = query.trim().toLowerCase();
-      list = list.filter((v) => `${v.year} ${v.make} ${v.model} ${v.type}`.toLowerCase().includes(q));
+      list = list.filter((v) => `${v.year} ${v.make} ${v.model} ${v.type} ${v.stock}`.toLowerCase().includes(q));
     }
     if (sort === "priceAsc") list = [...list].sort((a, b) => a.price - b.price);
     if (sort === "priceDesc") list = [...list].sort((a, b) => b.price - a.price);
@@ -81,7 +81,7 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
               <input
                 value={query}
                 onChange={(e) => setQuery(e.target.value)}
-                placeholder="Search year, make, or model"
+                placeholder="Search year, make, model, or stock #"
                 className="w-full border border-borderTan rounded-md pl-9 pr-3 py-2 text-sm focus-ring"
               />
             </div>
