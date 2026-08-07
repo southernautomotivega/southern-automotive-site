@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { Search, Gauge, Settings, Fuel, Car, CalendarCheck, Phone, X } from "lucide-react";
 import VehicleCard from "./VehicleCard";
 import { estimatePayment } from "@/lib/vehicles";
+import { PHONE_TEL } from "@/lib/site";
 
 const TYPES = ["All", "Truck", "SUV", "Sedan"];
 
@@ -172,7 +173,8 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
               <h3 className="font-display text-2xl font-semibold mb-1 text-navy900">
                 {selected.year} {selected.make} {selected.model}
               </h3>
-              <div className="flex items-baseline gap-3 mb-4">
+              <span className="text-sm text-muted font-medium">Stock #{selected.stock}</span>
+              <div className="flex items-baseline gap-3 mb-4 mt-2">
                 <span className="font-display text-xl font-semibold text-navy900">${selected.price.toLocaleString()}</span>
                 <span className="text-sm text-muted">Est. ${estimatePayment(selected.price).toLocaleString()}/mo*</span>
               </div>
@@ -190,7 +192,7 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
                   <CalendarCheck size={16} /> Ask About This Vehicle
                 </a>
                 <a
-                  href="tel:+18284766673"
+                  href={`tel:${PHONE_TEL}`}
                   className="flex-1 font-semibold px-5 py-3 rounded-lg hover:bg-black/5 transition focus-ring flex items-center justify-center gap-2 border border-borderTan text-navy900"
                 >
                   <Phone size={15} /> Call Now

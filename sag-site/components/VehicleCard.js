@@ -23,6 +23,7 @@ export default function VehicleCard({ v, saved, onToggleSave, onSelect }) {
         <h3 className="font-display text-lg font-semibold leading-tight text-navy900">
           {v.year} {v.make} {v.model}
         </h3>
+        <span className="text-xs text-muted font-medium">Stock #{v.stock}</span>
         <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
           <span className="flex items-center gap-1"><Gauge size={13} /> {v.miles.toLocaleString()} mi</span>
           <span className="flex items-center gap-1"><Settings size={13} /> {v.trans}</span>

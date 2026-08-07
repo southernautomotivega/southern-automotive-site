@@ -8,14 +8,14 @@
 // --------------------------------------------------------------------------
 
 const VEHICLES = [
-  { id: 1, year: 2019, make: "Ford", model: "F-150 XLT", price: 27995, miles: 58200, type: "Truck", trans: "Automatic", fuel: "Gas" },
-  { id: 2, year: 2020, make: "Toyota", model: "RAV4 XLE", price: 24450, miles: 41300, type: "SUV", trans: "Automatic", fuel: "Gas" },
-  { id: 3, year: 2018, make: "Chevrolet", model: "Silverado 1500", price: 25995, miles: 71900, type: "Truck", trans: "Automatic", fuel: "Gas" },
-  { id: 4, year: 2021, make: "Honda", model: "Accord Sport", price: 21900, miles: 33500, type: "Sedan", trans: "Automatic", fuel: "Gas" },
-  { id: 5, year: 2017, make: "Jeep", model: "Wrangler Unlimited", price: 26500, miles: 62100, type: "SUV", trans: "Manual", fuel: "Gas" },
-  { id: 6, year: 2019, make: "GMC", model: "Sierra 1500 SLE", price: 28995, miles: 49700, type: "Truck", trans: "Automatic", fuel: "Gas" },
-  { id: 7, year: 2020, make: "Subaru", model: "Outback Premium", price: 23400, miles: 38900, type: "SUV", trans: "Automatic", fuel: "Gas" },
-  { id: 8, year: 2018, make: "Nissan", model: "Altima SV", price: 16995, miles: 54200, type: "Sedan", trans: "Automatic", fuel: "Gas" },
+  { id: 1, stock: "SAG1001", year: 2019, make: "Ford", model: "F-150 XLT", price: 27995, miles: 58200, type: "Truck", trans: "Automatic", fuel: "Gas" },
+  { id: 2, stock: "SAG1002", year: 2020, make: "Toyota", model: "RAV4 XLE", price: 24450, miles: 41300, type: "SUV", trans: "Automatic", fuel: "Gas" },
+  { id: 3, stock: "SAG1003", year: 2018, make: "Chevrolet", model: "Silverado 1500", price: 25995, miles: 71900, type: "Truck", trans: "Automatic", fuel: "Gas" },
+  { id: 4, stock: "SAG1004", year: 2021, make: "Honda", model: "Accord Sport", price: 21900, miles: 33500, type: "Sedan", trans: "Automatic", fuel: "Gas" },
+  { id: 5, stock: "SAG1005", year: 2017, make: "Jeep", model: "Wrangler Unlimited", price: 26500, miles: 62100, type: "SUV", trans: "Manual", fuel: "Gas" },
+  { id: 6, stock: "SAG1006", year: 2019, make: "GMC", model: "Sierra 1500 SLE", price: 28995, miles: 49700, type: "Truck", trans: "Automatic", fuel: "Gas" },
+  { id: 7, stock: "SAG1007", year: 2020, make: "Subaru", model: "Outback Premium", price: 23400, miles: 38900, type: "SUV", trans: "Automatic", fuel: "Gas" },
+  { id: 8, stock: "SAG1008", year: 2018, make: "Nissan", model: "Altima SV", price: 16995, miles: 54200, type: "Sedan", trans: "Automatic", fuel: "Gas" },
 ];
 
 // Swap this function's body for a real fetch() once you have a feed URL, e.g.:
