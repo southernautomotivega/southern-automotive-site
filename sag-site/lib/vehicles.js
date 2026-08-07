@@ -16,6 +16,7 @@ const VEHICLES = [
   { id: 6, stock: "SAG1006", year: 2019, make: "GMC", model: "Sierra 1500 SLE", price: 28995, miles: 49700, type: "Truck", trans: "Automatic", fuel: "Gas" },
   { id: 7, stock: "SAG1007", year: 2020, make: "Subaru", model: "Outback Premium", price: 23400, miles: 38900, type: "SUV", trans: "Automatic", fuel: "Gas" },
   { id: 8, stock: "SAG1008", year: 2018, make: "Nissan", model: "Altima SV", price: 16995, miles: 54200, type: "Sedan", trans: "Automatic", fuel: "Gas" },
+  { id: 9, stock: "SAG1009", year: 2024, make: "Jeep", model: "Grand Cherokee 4xe", price: 26995, miles: 46322, type: "SUV", trans: "Automatic", fuel: "Hybrid", image: "/vehicles/jeep-grand-cherokee-4xe.jpg" },
 ];
 
 // Swap this function's body for a real fetch() once you have a feed URL, e.g.:

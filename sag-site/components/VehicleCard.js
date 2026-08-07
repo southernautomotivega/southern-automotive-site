@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { Car, Gauge, Settings, Fuel, Heart } from "lucide-react";
 import { estimatePayment } from "@/lib/vehicles";
 
@@ -6,8 +7,12 @@ export default function VehicleCard({ v, saved, onToggleSave, onSelect }) {
   const isSaved = saved.has(v.id);
   return (
     <div className="overflow-hidden flex flex-col rounded-[10px] shadow-card bg-white font-body">
-      <div className="flex items-center justify-center relative h-[150px] bg-gradient-to-br from-navy800 to-navy600">
-        <Car size={46} color="#FDB813" strokeWidth={1.4} />
+      <div className="flex items-center justify-center relative h-[150px] bg-gradient-to-br from-navy800 to-navy600 overflow-hidden">
+        {v.image ? (
+          <Image src={v.image} alt={`${v.year} ${v.make} ${v.model}`} fill className="object-cover" />
+        ) : (
+          <Car size={46} color="#FDB813" strokeWidth={1.4} />
+        )}
         <span className="absolute top-3 left-3 text-xs font-semibold px-2 py-1 rounded bg-[rgba(16,26,48,0.85)] text-brandGold">
           {v.type}
         </span>

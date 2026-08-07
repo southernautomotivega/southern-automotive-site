@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { Search, Gauge, Settings, Fuel, Car, CalendarCheck, Phone, X } from "lucide-react";
 import VehicleCard from "./VehicleCard";
 import { estimatePayment } from "@/lib/vehicles";
@@ -158,8 +159,12 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
             className="w-full sm:max-w-lg sm:rounded-2xl rounded-t-2xl overflow-hidden max-h-[90vh] overflow-y-auto bg-white"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-center relative h-[160px] bg-gradient-to-br from-navy800 to-navy600">
-              <Car size={56} color="#FDB813" strokeWidth={1.3} />
+            <div className="flex items-center justify-center relative h-[160px] bg-gradient-to-br from-navy800 to-navy600 overflow-hidden">
+              {selected.image ? (
+                <Image src={selected.image} alt={`${selected.year} ${selected.make} ${selected.model}`} fill className="object-cover" />
+              ) : (
+                <Car size={56} color="#FDB813" strokeWidth={1.3} />
+              )}
               <button
                 onClick={() => setSelected(null)}
                 aria-label="Close"
