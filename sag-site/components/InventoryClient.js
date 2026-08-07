@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import { Search, Gauge, Settings, Fuel, Car, CalendarCheck, Phone, X } from "lucide-react";
 import VehicleCard from "./VehicleCard";
 import { estimatePayment } from "@/lib/vehicles";
-import { PHONE_TEL } from "@/lib/site";
 
 const TYPES = ["All", "Truck", "SUV", "Sedan"];
 
@@ -192,7 +191,7 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
                   <CalendarCheck size={16} /> Ask About This Vehicle
                 </a>
                 <a
-                  href={`tel:${PHONE_TEL}`}
+                  href="tel:+18284766673"
                   className="flex-1 font-semibold px-5 py-3 rounded-lg hover:bg-black/5 transition focus-ring flex items-center justify-center gap-2 border border-borderTan text-navy900"
                 >
                   <Phone size={15} /> Call Now
