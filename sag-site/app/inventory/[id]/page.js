@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Gauge, Settings, Fuel, Car, CalendarCheck, Phone, ArrowLeft } from "lucide-react";
+import { Gauge, Settings, Fuel, Car, CalendarCheck, Phone, ArrowLeft, Cog } from "lucide-react";
 import { getVehicles, estimatePayment } from "@/lib/vehicles";
 
 export async function generateMetadata({ params }) {
@@ -50,7 +50,7 @@ export default async function VehicleDetailPage({ params }) {
               <span className="text-sm text-muted">Est. ${estimatePayment(v.price).toLocaleString()}/mo*</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 pb-8 border-b border-borderTan">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 pb-8 border-b border-borderTan">
               <div>
                 <p className="text-xs text-muted mb-1">Mileage</p>
                 <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Gauge size={15} /> {v.miles.toLocaleString()} mi</p>
@@ -58,6 +58,10 @@ export default async function VehicleDetailPage({ params }) {
               <div>
                 <p className="text-xs text-muted mb-1">Transmission</p>
                 <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Settings size={15} /> {v.trans}</p>
+              </div>
+              <div>
+                <p className="text-xs text-muted mb-1">Engine</p>
+                <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Cog size={15} /> {v.engine}</p>
               </div>
               <div>
                 <p className="text-xs text-muted mb-1">Fuel Type</p>
@@ -68,6 +72,13 @@ export default async function VehicleDetailPage({ params }) {
                 <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Car size={15} /> {v.type}</p>
               </div>
             </div>
+
+            {v.description && (
+              <div className="mb-8 pb-8 border-b border-borderTan">
+                <p className="text-xs font-bold tracking-[0.14em] uppercase mb-2 text-brandOrange">Vehicle Description</p>
+                <p className="text-sm leading-relaxed text-[#211F1A]">{v.description}</p>
+              </div>
+            )}
 
             <div className="flex flex-col sm:flex-row gap-3">
               <Link
@@ -87,6 +98,20 @@ export default async function VehicleDetailPage({ params }) {
             <p className="text-xs text-muted mt-6">
               *Payment estimate assumes 9.9% APR over 60 months. Not a financing offer — actual terms depend on credit and lender approval.
             </p>
+
+            <div className="mt-6 p-4 rounded-[8px] bg-[#F3EDE2]">
+              <p className="text-xs font-bold uppercase tracking-wide text-navy900 mb-2">Dealer Disclaimer</p>
+              <p className="text-xs leading-relaxed text-muted">
+                All vehicle information, including pricing, mileage, and equipment, is believed to be accurate
+                but is not guaranteed and is subject to change without notice. Please verify all vehicle details
+                with a Southern Automotive Group representative prior to purchase. Prices do not include tax,
+                tag, title, and applicable dealer fees. Photos may not reflect the actual vehicle&apos;s exact
+                color, options, or condition. Financing and payment estimates shown are for illustrative
+                purposes only and do not constitute an offer of credit; actual rates and terms depend on
+                applicant creditworthiness and lender approval. Southern Automotive Group is not responsible
+                for typographical errors in pricing or vehicle information.
+              </p>
+            </div>
           </div>
         </div>
       </div>

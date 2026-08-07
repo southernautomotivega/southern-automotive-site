@@ -8,15 +8,15 @@
 // --------------------------------------------------------------------------
 
 const VEHICLES = [
-  { id: 1, stock: "SAG1001", year: 2019, make: "Ford", model: "F-150 XLT", price: 27995, miles: 58200, type: "Truck", trans: "Automatic", fuel: "Gas" },
-  { id: 2, stock: "SAG1002", year: 2020, make: "Toyota", model: "RAV4 XLE", price: 24450, miles: 41300, type: "SUV", trans: "Automatic", fuel: "Gas" },
-  { id: 3, stock: "SAG1003", year: 2018, make: "Chevrolet", model: "Silverado 1500", price: 25995, miles: 71900, type: "Truck", trans: "Automatic", fuel: "Gas" },
-  { id: 4, stock: "SAG1004", year: 2021, make: "Honda", model: "Accord Sport", price: 21900, miles: 33500, type: "Sedan", trans: "Automatic", fuel: "Gas" },
-  { id: 5, stock: "SAG1005", year: 2017, make: "Jeep", model: "Wrangler Unlimited", price: 26500, miles: 62100, type: "SUV", trans: "Manual", fuel: "Gas" },
-  { id: 6, stock: "SAG1006", year: 2019, make: "GMC", model: "Sierra 1500 SLE", price: 28995, miles: 49700, type: "Truck", trans: "Automatic", fuel: "Gas" },
-  { id: 7, stock: "SAG1007", year: 2020, make: "Subaru", model: "Outback Premium", price: 23400, miles: 38900, type: "SUV", trans: "Automatic", fuel: "Gas" },
-  { id: 8, stock: "SAG1008", year: 2018, make: "Nissan", model: "Altima SV", price: 16995, miles: 54200, type: "Sedan", trans: "Automatic", fuel: "Gas" },
-  { id: 9, stock: "SAG1009", year: 2024, make: "Jeep", model: "Grand Cherokee 4xe", price: 26995, miles: 46322, type: "SUV", trans: "Automatic", fuel: "Hybrid", image: "/vehicles/jeep-grand-cherokee-4xe.jpg" },
+  { id: 1, stock: "SAG1001", year: 2019, make: "Ford", model: "F-150 XLT", price: 27995, miles: 58200, type: "Truck", trans: "Automatic", fuel: "Gas", engine: "3.5L V6" },
+  { id: 2, stock: "SAG1002", year: 2020, make: "Toyota", model: "RAV4 XLE", price: 24450, miles: 41300, type: "SUV", trans: "Automatic", fuel: "Gas", engine: "2.5L 4-Cylinder" },
+  { id: 3, stock: "SAG1003", year: 2018, make: "Chevrolet", model: "Silverado 1500", price: 25995, miles: 71900, type: "Truck", trans: "Automatic", fuel: "Gas", engine: "5.3L V8" },
+  { id: 4, stock: "SAG1004", year: 2021, make: "Honda", model: "Accord Sport", price: 21900, miles: 33500, type: "Sedan", trans: "Automatic", fuel: "Gas", engine: "1.5L Turbo 4-Cylinder" },
+  { id: 5, stock: "SAG1005", year: 2017, make: "Jeep", model: "Wrangler Unlimited", price: 26500, miles: 62100, type: "SUV", trans: "Manual", fuel: "Gas", engine: "3.6L V6" },
+  { id: 6, stock: "SAG1006", year: 2019, make: "GMC", model: "Sierra 1500 SLE", price: 28995, miles: 49700, type: "Truck", trans: "Automatic", fuel: "Gas", engine: "5.3L V8" },
+  { id: 7, stock: "SAG1007", year: 2020, make: "Subaru", model: "Outback Premium", price: 23400, miles: 38900, type: "SUV", trans: "Automatic", fuel: "Gas", engine: "2.5L 4-Cylinder" },
+  { id: 8, stock: "SAG1008", year: 2018, make: "Nissan", model: "Altima SV", price: 16995, miles: 54200, type: "Sedan", trans: "Automatic", fuel: "Gas", engine: "2.5L 4-Cylinder" },
+  { id: 9, stock: "SAG1009", year: 2024, make: "Jeep", model: "Grand Cherokee 4xe", price: 26995, miles: 46322, type: "SUV", trans: "Automatic", fuel: "Hybrid", engine: "2.0L Turbo Plug-In Hybrid", image: "/vehicles/jeep-grand-cherokee-4xe.jpg", description: "One-owner trade-in, garage kept. Recent oil change and tire rotation performed in-house before listing. Clean Carfax, no accidents reported. Plug-in hybrid drivetrain gets great mileage around town — ask us about the tax incentives that may still apply." },
 ];
 
 // Swap this function's body for a real fetch() once you have a feed URL, e.g.:
