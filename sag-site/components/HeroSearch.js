@@ -13,7 +13,7 @@ export default function HeroSearch() {
   }
 
   return (
-    <div className="mt-8 max-w-xl rounded-xl p-3 bg-white/[0.08] border border-white/[0.16]">
+    <div className="mt-8 max-w-3xl rounded-xl p-3 bg-white/[0.08] border border-white/[0.16]">
       <div className="flex flex-col sm:flex-row gap-2">
         <div className="relative flex-1">
           <Search size={17} className="absolute left-3 top-1/2 -translate-y-1/2 text-[#9AA3B8]" />
