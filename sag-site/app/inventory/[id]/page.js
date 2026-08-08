@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { notFound } from "next/navigation";
-import { Gauge, Settings, Fuel, Car, CalendarCheck, Phone, ArrowLeft, Cog } from "lucide-react";
+import { Gauge, Settings, Fuel, Car, CalendarCheck, Phone, ArrowLeft, Cog, Hash, ExternalLink, Disc } from "lucide-react";
 import { getVehicles, estimatePayment } from "@/lib/vehicles";
 
 export async function generateMetadata({ params }) {
@@ -50,28 +50,58 @@ export default async function VehicleDetailPage({ params }) {
               <span className="text-sm text-muted">Est. ${estimatePayment(v.price).toLocaleString()}/mo*</span>
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8 pb-8 border-b border-borderTan">
-              <div>
-                <p className="text-xs text-muted mb-1">Mileage</p>
-                <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Gauge size={15} /> {v.miles.toLocaleString()} mi</p>
-              </div>
-              <div>
-                <p className="text-xs text-muted mb-1">Transmission</p>
-                <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Settings size={15} /> {v.trans}</p>
-              </div>
-              <div>
-                <p className="text-xs text-muted mb-1">Engine</p>
-                <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Cog size={15} /> {v.engine}</p>
-              </div>
-              <div>
-                <p className="text-xs text-muted mb-1">Fuel Type</p>
-                <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Fuel size={15} /> {v.fuel}</p>
-              </div>
-              <div>
-                <p className="text-xs text-muted mb-1">Body Style</p>
-                <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Car size={15} /> {v.type}</p>
+            <div className="rounded-[8px] border border-borderTan p-5 mb-8">
+              <p className="text-xs font-bold tracking-[0.14em] uppercase mb-4 text-brandOrange">Vehicle Specifications</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                <div>
+                  <p className="text-xs text-muted mb-1">Mileage</p>
+                  <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Gauge size={15} /> {v.miles.toLocaleString()} mi</p>
+                </div>
+                {v.engine && (
+                  <div>
+                    <p className="text-xs text-muted mb-1">Engine</p>
+                    <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Cog size={15} /> {v.engine}</p>
+                  </div>
+                )}
+                {v.trans && (
+                  <div>
+                    <p className="text-xs text-muted mb-1">Transmission</p>
+                    <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Settings size={15} /> {v.trans}</p>
+                  </div>
+                )}
+                {v.drivetrain && (
+                  <div>
+                    <p className="text-xs text-muted mb-1">Drivetrain</p>
+                    <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Disc size={15} /> {v.drivetrain}</p>
+                  </div>
+                )}
+                {v.fuel && (
+                  <div>
+                    <p className="text-xs text-muted mb-1">Fuel Type</p>
+                    <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Fuel size={15} /> {v.fuel}</p>
+                  </div>
+                )}
+                <div>
+                  <p className="text-xs text-muted mb-1">Body Style</p>
+                  <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Car size={15} /> {v.type}</p>
+                </div>
+                <div className="col-span-2 sm:col-span-3">
+                  <p className="text-xs text-muted mb-1">VIN</p>
+                  <p className="flex items-center gap-1.5 text-sm font-semibold text-navy900"><Hash size={15} /> {v.vin}</p>
+                </div>
               </div>
             </div>
+
+            {v.carfaxUrl && (
+              <a
+                href={v.carfaxUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-brandOrange underline mb-8 focus-ring"
+              >
+                View Carfax Report <ExternalLink size={14} />
+              </a>
+            )}
 
             {v.description && (
               <div className="mb-8 pb-8 border-b border-borderTan">

@@ -47,8 +47,8 @@ export default function VehicleCard({ v, saved, onToggleSave }) {
         <span className="text-xs text-muted font-medium">Stock #{v.stock}</span>
         <div className="flex flex-wrap gap-x-3 gap-y-1 text-xs text-muted">
           <span className="flex items-center gap-1"><Gauge size={13} /> {v.miles.toLocaleString()} mi</span>
-          <span className="flex items-center gap-1"><Settings size={13} /> {v.trans}</span>
-          <span className="flex items-center gap-1"><Fuel size={13} /> {v.fuel}</span>
+          {v.trans && <span className="flex items-center gap-1"><Settings size={13} /> {v.trans}</span>}
+          {v.fuel && <span className="flex items-center gap-1"><Fuel size={13} /> {v.fuel}</span>}
         </div>
         <div className="pt-3 mt-1 flex items-end justify-between border-t border-borderTan">
           <div>
