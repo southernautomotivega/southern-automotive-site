@@ -9,7 +9,7 @@ export const metadata = {
 };
 
 const SOCIALS = [
-  { name: "Facebook", url: "https://www.facebook.com/share/1BdgARvSjK/?mibextid=wwXIfr", Icon: Facebook },
+  { name: "Facebook", url: "https://www.facebook.com/share/1RBcWLwdV5/?mibextid=wwXIfr", Icon: Facebook },
   { name: "Instagram", url: "https://www.instagram.com/southernautomotivegroup", Icon: Instagram },
   { name: "TikTok", url: "https://www.tiktok.com/@southernautomotivega", Icon: Video },
 ];

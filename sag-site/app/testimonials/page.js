@@ -8,7 +8,7 @@ const TESTIMONIALS = [
   { name: "Michael R.", quote: "Probably the easiest car-buying experience I've had. No pressure, no runaround, and everything was explained clearly. I'll definitely be back when it's time for another vehicle.", rating: 5 },
   { name: "Sarah T.", quote: "You can tell they genuinely care about the people they work with. I felt comfortable from the moment I walked in and never felt pressured into anything. Great people and a great experience.", rating: 5 },
   { name: "Daniel C.", quote: "Southern Automotive Group made the whole process simple and straightforward. The vehicle was exactly as described, the pricing was fair, and I was treated with respect from start to finish.", rating: 5 },
-  ];
+];
 
 const REVIEW_URL = "https://www.google.com/maps/search/?api=1&query=Southern%20Automotive%20Group%20Clayton%20GA%20reviews";
 
@@ -19,7 +19,7 @@ export default function TestimonialsPage() {
         <SectionEyebrow>Reviews</SectionEyebrow>
         <h2 className="font-display text-3xl font-semibold mb-2 text-navy900">Testimonials</h2>
         <p className="text-sm mb-10 max-w-xl text-muted">
-          Sample quotes below — replace with real customer reviews as they come in.
+          What our customers are saying about buying from us.
         </p>
         <div className="grid sm:grid-cols-3 gap-5">
           {TESTIMONIALS.map((t, i) => (

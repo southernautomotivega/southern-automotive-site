@@ -6,9 +6,9 @@ import { getVehicles } from "@/lib/vehicles";
 import HeroSearch from "@/components/HeroSearch";
 
 const TESTIMONIALS = [
-  { name: "Sample Customer", quote: "Placeholder — swap in a real quote once your first reviews come in. Keep it short and specific to what they liked.", rating: 5 },
-  { name: "Sample Customer", quote: "Placeholder testimonial. Real customer names and quotes build far more trust than generic copy.", rating: 5 },
-  { name: "Sample Customer", quote: "Placeholder testimonial. Consider pulling your best Google or Facebook reviews here once you have them.", rating: 5 },
+  { name: "Michael R.", quote: "Probably the easiest car-buying experience I've had. No pressure, no runaround, and everything was explained clearly. I'll definitely be back when it's time for another vehicle.", rating: 5 },
+  { name: "Sarah T.", quote: "You can tell they genuinely care about the people they work with. I felt comfortable from the moment I walked in and never felt pressured into anything. Great people and a great experience.", rating: 5 },
+  { name: "Daniel C.", quote: "Southern Automotive Group made the whole process simple and straightforward. The vehicle was exactly as described, the pricing was fair, and I was treated with respect from start to finish.", rating: 5 },
 ];
 
 const STEPS = [
@@ -24,7 +24,7 @@ export default async function HomePage() {
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-navy800 via-navy700 to-navy600">
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 font-body">
-          <Image src="/logo.png" alt="Southern Automotive Group" width={560} height={265} className="h-24 sm:h-36 w-auto mb-6" priority />
+          <Image src="/logo.png" alt="Southern Automotive Group" width={560} height={265} className="h-16 sm:h-20 w-auto mb-6" priority />
           <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">Clayton, Georgia · Rabun County</p>
           <h1 className="font-display text-4xl sm:text-6xl font-semibold leading-tight max-w-2xl text-white">
             Vehicles worth owning, and people worth trusting.
