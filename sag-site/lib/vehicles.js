@@ -92,9 +92,10 @@ export function estimatePayment(price, rate = 0.099, months = 60) {
 // Same pattern for staff — swap for a CMS (Airtable, Sanity, etc.) fetch
 // once you want to edit this without touching code.
 const TEAM = [
-  { id: 1, name: "Nathan", role: "Co-Owner", initials: "N", bio: "Runs day-to-day sales and inventory sourcing. Every vehicle gets a mechanical once-over from Nathan before it goes on the lot." },
-  { id: 2, name: "Paul D. Burns", role: "Co-Owner", initials: "PB", bio: "Nathan's partner and mentor in building the dealership from the ground up, focused on the business side and long-term direction." },
-];
+  { id: 1, name: "Nathan Hereford", role: "Managing Parter", initials: "NH", bio: "After five years in automotive sales, Nathan founded Southern Automotive Group with a simple goal: to provide a better car-buying experience. He brings his industry experience and passion for customer service into the dealership every day, personally working with customers and overseeing day-to-day operations to ensure every vehicle and every customer receives the attention they deserve. },
+  { id: 2, name: "Paul Burns", role: "Partner", initials: "PB", bio: "Paul brings decades of business experience and leadership to Southern Automotive Group. As a founding partner, he plays an important role in the dealership’s direction and long-term growth, helping ensure the business is built on strong values, sound decisions, and a commitment to serving our customers and community." },
+  { id: 1, name: "Ellie Dunn" role: "Media Manager", initials: "ED", bio: "Ellie is the creative force behind Southern Automotive Group’s marketing and media. With an eye for detail and a passion for great content, she keeps our brand looking sharp, professional."
+  ];
 
 export async function getTeam() {
   return TEAM;
