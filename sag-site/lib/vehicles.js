@@ -95,6 +95,7 @@ const TEAM = [
   { id: 1, name: "Nathan Hereford", role: "Managing Parter", initials: "NH", bio: "After five years in automotive sales, Nathan founded Southern Automotive Group with a simple goal: to provide a better car-buying experience. He brings his industry experience and passion for customer service into the dealership every day, personally working with customers and overseeing day-to-day operations to ensure every vehicle and every customer receives the attention they deserve." },
   { id: 2, name: "Paul Burns", role: "Partner", initials: "PB", bio: "Paul brings decades of business experience and leadership to Southern Automotive Group. As a founding partner, he plays an important role in the dealership’s direction and long-term growth, helping ensure the business is built on strong values, sound decisions, and a commitment to serving our customers and community." },
   { id: 3, name: "Ellie Dunn", role: "Media Manager", initials: "ED", bio: "Ellie is the creative force behind Southern Automotive Group’s marketing and media. With an eye for detail and a passion for great content, she keeps our brand looking sharp, and professional." }
+  { id: 4, name: "Brayden Hereford", role: "Detailing Manager", initails: "BH", bio: "Brayden is a full time highschool student here is Rabun County and is a hardworking young man, however if a vehicle you come to see is not clean this is the man to complain to." }
   ];
 
 export async function getTeam() {
