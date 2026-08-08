@@ -9,9 +9,9 @@ export const metadata = {
 };
 
 const SOCIALS = [
-  { name: "Facebook", url: "https://www.facebook.com/southernautomotivegroup", Icon: Facebook },
+  { name: "Facebook", url: "https://www.facebook.com/share/1BdgARvSjK/?mibextid=wwXIfr", Icon: Facebook },
   { name: "Instagram", url: "https://www.instagram.com/southernautomotivegroup", Icon: Instagram },
-  { name: "TikTok", url: "https://www.tiktok.com/@southernautomotivegroup", Icon: Video },
+  { name: "TikTok", url: "https://www.tiktok.com/@southernautomotivega", Icon: Video },
 ];
 
 export default function ContactPage() {
