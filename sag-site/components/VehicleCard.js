@@ -18,11 +18,17 @@ export default function VehicleCard({ v, saved, onToggleSave }) {
       role="link"
       tabIndex={0}
       onKeyDown={(e) => { if (e.key === "Enter") goToDetail(); }}
-      className="overflow-hidden flex flex-col rounded-[10px] shadow-card bg-white font-body cursor-pointer hover:shadow-lg hover:-translate-y-0.5 transition focus-ring"
+      className="group overflow-hidden flex flex-col rounded-[10px] shadow-card bg-white font-body cursor-pointer transition-all duration-300 hover:shadow-cardHover hover:-translate-y-1 focus-ring"
     >
       <div className="flex items-center justify-center relative h-[150px] bg-gradient-to-br from-navy800 to-navy600 overflow-hidden">
         {v.image ? (
-          <Image src={v.image} alt={`${v.year} ${v.make} ${v.model}`} fill className="object-cover" />
+          <Image
+            src={v.image}
+            alt={`${v.year} ${v.make} ${v.model}`}
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+            className="object-cover transition-transform duration-500 ease-out group-hover:scale-110"
+          />
         ) : (
           <div className="flex flex-col items-center gap-2">
             <Image src="/logo.png" alt="Southern Automotive Group" width={280} height={132} className="h-10 w-auto opacity-90" />
@@ -35,9 +41,15 @@ export default function VehicleCard({ v, saved, onToggleSave }) {
         <button
           onClick={(e) => { e.stopPropagation(); onToggleSave(v.id); }}
           aria-label={isSaved ? "Remove from saved" : "Save vehicle"}
-          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-[rgba(16,26,48,0.55)] hover:opacity-80 transition focus-ring"
+          className="absolute top-3 right-3 w-8 h-8 rounded-full flex items-center justify-center bg-[rgba(16,26,48,0.55)] hover:opacity-80 active:scale-90 transition focus-ring"
         >
-          <Heart size={15} color={isSaved ? "#F0791A" : "#fff"} fill={isSaved ? "#F0791A" : "none"} />
+          <Heart
+            size={15}
+            color={isSaved ? "#F0791A" : "#fff"}
+            fill={isSaved ? "#F0791A" : "none"}
+            className="transition-transform duration-200"
+            style={isSaved ? { transform: "scale(1.15)" } : undefined}
+          />
         </button>
       </div>
       <div className="p-4 flex flex-col gap-2.5 flex-1">

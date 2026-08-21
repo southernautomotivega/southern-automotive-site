@@ -3,6 +3,7 @@ import { Phone, MapPin, Clock } from "lucide-react";
 import { Facebook, Instagram, Video } from "lucide-react";
 import { SectionEyebrow } from "@/components/Shared";
 import ContactForm from "@/components/ContactForm";
+import Reveal from "@/components/motion/Reveal";
 
 export const metadata = {
   title: "Contact | Southern Automotive Group",
@@ -18,7 +19,7 @@ export default function ContactPage() {
   return (
     <section className="py-16 bg-bg font-body">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 grid sm:grid-cols-2 gap-10">
-        <div>
+        <Reveal>
           <SectionEyebrow>Reach out</SectionEyebrow>
           <h2 className="font-display text-3xl font-semibold mb-3 text-navy900">Get in touch</h2>
           <p className="text-sm leading-relaxed mb-6 text-muted">
@@ -26,7 +27,7 @@ export default function ContactPage() {
             a specific vehicle on the lot. We&apos;ll get back to you within one business day.
           </p>
           <div className="p-5 flex flex-col gap-3 text-sm mb-6 rounded-[10px] shadow-card bg-white text-navy900">
-            <div className="flex items-center gap-3"><Phone size={16} className="text-brandOrange" /> 828-476-6673</div>
+            <div className="flex items-center gap-3"><Phone size={16} className="text-brandOrange" /> 762-799-7108</div>
             <div className="flex items-start gap-3"><MapPin size={16} className="text-brandOrange mt-0.5" /> 1109 Old Highway 441 S, Clayton, GA 30525</div>
             <div className="flex items-center gap-3"><Clock size={16} className="text-brandOrange" /> Mon–Fri 9am–6pm · Sat 9am–3pm</div>
             <a
@@ -52,13 +53,13 @@ export default function ContactPage() {
               </a>
             ))}
           </div>
-        </div>
+        </Reveal>
 
-        <div className="p-6 rounded-[10px] shadow-card bg-white">
+        <Reveal delay={0.1} className="p-6 rounded-[10px] shadow-card bg-white">
           <Suspense fallback={<div className="text-sm text-muted">Loading form…</div>}>
             <ContactForm />
           </Suspense>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

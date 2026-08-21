@@ -17,3 +17,86 @@ body {
   outline: 2px solid #F0791A;
   outline-offset: 2px;
 }
+
+.bg-grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+}
+
+/* --------------------------------------------------------------------------
+   Scroll reveal
+   --------------------------------------------------------------------------
+   Elements render hidden and an IntersectionObserver adds .is-revealed once
+   they scroll into view. Two separate classes on purpose:
+
+   .is-revealed  — plain opacity:1. This is the state that *guarantees*
+                   visibility, so if the animation never runs (no keyframe
+                   support, an interrupted frame) content still shows.
+   .is-revealing — the actual keyframe. It is removed on animationend so its
+                   forwards-fill stops pinning `transform`, which would
+                   otherwise block the hover-lift on cards.
+
+   The reduced-motion and no-JS paths below force the final state outright.
+   -------------------------------------------------------------------------- */
+[data-reveal],
+[data-reveal-stagger] > * {
+  opacity: 0;
+}
+
+[data-reveal].is-revealed,
+[data-reveal-stagger] > .is-revealed {
+  opacity: 1;
+}
+
+/* `forwards`, never `both`: a backwards fill would re-apply the keyframe's
+   opacity:0 and override .is-revealed, which is the whole safety net. The
+   stagger is scheduled in JS rather than with animation-delay for the same
+   reason — a delay is exactly when a backwards fill would bite. */
+[data-reveal].is-revealing,
+[data-reveal-stagger] > .is-revealing {
+  animation: revealIn 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Hero entrance. Defaults to the finished state, so if the animation cannot
+   run for any reason the hero is simply visible rather than blank. */
+@keyframes heroIn {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+[data-hero-item] {
+  animation: heroIn 700ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  [data-reveal],
+  [data-reveal-stagger] > *,
+  [data-hero-item] {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}

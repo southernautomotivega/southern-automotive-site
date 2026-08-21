@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Gauge, Settings, Fuel, Car, CalendarCheck, Phone, ArrowLeft, Cog, Hash, ExternalLink, Disc } from "lucide-react";
 import { getVehicles, estimatePayment } from "@/lib/vehicles";
+import Reveal from "@/components/motion/Reveal";
 
 export async function generateMetadata({ params }) {
   const vehicles = await getVehicles();
@@ -24,10 +25,17 @@ export default async function VehicleDetailPage({ params }) {
           <ArrowLeft size={15} /> Back to Inventory
         </Link>
 
-        <div className="rounded-[10px] shadow-card bg-white overflow-hidden">
+        <Reveal className="rounded-[10px] shadow-card bg-white overflow-hidden">
           <div className="relative h-[260px] sm:h-[360px] bg-gradient-to-br from-navy800 to-navy600 flex items-center justify-center overflow-hidden">
             {v.image ? (
-              <Image src={v.image} alt={`${v.year} ${v.make} ${v.model}`} fill className="object-cover" priority />
+              <Image
+                src={v.image}
+                alt={`${v.year} ${v.make} ${v.model}`}
+                fill
+                sizes="(max-width: 896px) 100vw, 896px"
+                className="object-cover"
+                priority
+              />
             ) : (
               <div className="flex flex-col items-center gap-3">
                 <Image src="/logo.png" alt="Southern Automotive Group" width={280} height={132} className="h-14 sm:h-16 w-auto opacity-90" />
@@ -118,7 +126,7 @@ export default async function VehicleDetailPage({ params }) {
                 <CalendarCheck size={16} /> Ask About This Vehicle
               </Link>
               <a
-                href="tel:+18284766673"
+                href="tel:+17627997108"
                 className="flex-1 font-semibold px-5 py-3 rounded-lg hover:bg-black/5 transition focus-ring flex items-center justify-center gap-2 border border-borderTan text-navy900"
               >
                 <Phone size={15} /> Call Now
@@ -143,7 +151,7 @@ export default async function VehicleDetailPage({ params }) {
               </p>
             </div>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

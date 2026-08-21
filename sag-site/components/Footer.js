@@ -34,7 +34,7 @@ export default function Footer() {
           <p className="text-xs text-[#7C87A0]">
             © {new Date().getFullYear()} Southern Automotive Group of Georgia, LLC · 1109 Old Highway 441 S, Clayton, GA 30525
           </p>
-          <p className="text-xs text-[#7C87A0]">828-476-6673</p>
+          <p className="text-xs text-[#7C87A0]">762-799-7108</p>
         </div>
       </div>
     </footer>

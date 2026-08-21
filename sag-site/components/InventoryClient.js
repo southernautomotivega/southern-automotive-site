@@ -3,6 +3,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
 import VehicleCard from "./VehicleCard";
+import Reveal from "@/components/motion/Reveal";
 
 const TYPES = ["All", "Truck", "SUV", "Sedan"];
 
@@ -47,7 +48,7 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
 
   return (
     <div className="font-body">
-      <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
+      <Reveal className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
         <div>
           <p className="text-xs font-bold tracking-[0.14em] uppercase mb-2 text-brandOrange">
             {full ? "Full lot" : "Just arrived"}
@@ -69,7 +70,7 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
             View all inventory →
           </button>
         )}
-      </div>
+      </Reveal>
 
       {full && (
         <div className="p-4 flex flex-col gap-4 mb-8 rounded-[10px] bg-white border border-borderTan sticky top-[64px] z-10">
@@ -134,11 +135,11 @@ export default function InventoryClient({ vehicles, full = false, initialQuery =
           <a href="/contact" className="font-semibold underline text-brandOrange">tell us what you're after</a>.
         </div>
       ) : (
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <Reveal as="div" stagger y={16} className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {filtered.map((v) => (
             <VehicleCard key={v.id} v={v} saved={saved} onToggleSave={toggleSave} />
           ))}
-        </div>
+        </Reveal>
       )}
 
       {full && (

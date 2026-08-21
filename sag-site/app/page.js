@@ -4,6 +4,8 @@ import { TrustStrip, CTABanner, SectionEyebrow, StarRow } from "@/components/Sha
 import InventoryClient from "@/components/InventoryClient";
 import { getVehicles } from "@/lib/vehicles";
 import HeroSearch from "@/components/HeroSearch";
+import HeroFX from "@/components/motion/HeroFX";
+import Reveal from "@/components/motion/Reveal";
 
 const TESTIMONIALS = [
   { name: "Michael R.", quote: "Probably the easiest car-buying experience I've had. No pressure, no runaround, and everything was explained clearly. I'll definitely be back when it's time for another vehicle.", rating: 5 },
@@ -19,58 +21,154 @@ const STEPS = [
 
 export default async function HomePage() {
   const vehicles = await getVehicles();
+  // The hero showcases a real photographed vehicle; placeholder-image listings
+  // would just render the logo card again, so fall back to no showcase at all.
+  const featured = vehicles.find((v) => v.image);
 
   return (
     <>
       <section className="relative overflow-hidden bg-gradient-to-b from-navy800 via-navy700 to-navy600">
-        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-16 sm:pt-16 sm:pb-20 font-body">
-          <Image src="/logo.png" alt="Southern Automotive Group" width={560} height={265} className="h-16 sm:h-20 w-auto mb-6" priority />
-          <p className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">Clayton, Georgia · Rabun County</p>
-          <h1 className="font-display text-4xl sm:text-6xl font-semibold leading-tight max-w-2xl text-white">
-            Vehicles worth owning, and people worth trusting.
-          </h1>
-          <p className="mt-4 text-base sm:text-lg max-w-xl text-[#C9D0DE]">
-            Owner-operated, no games, no markup surprises — just solid vehicles, inspected and
-            priced fair, backed by people who&apos;ll answer the phone.
-          </p>
-          <HeroSearch />
-        </div>
+        <HeroFX className="relative">
+          {/* The parallax wrapper owns `transform` for scroll drift; the inner
+              orb owns it for the float keyframe. Same element can't do both. */}
+          <div aria-hidden data-parallax className="pointer-events-none absolute -top-24 -right-24">
+            <div className="w-[420px] h-[420px] rounded-full bg-brandOrange/20 blur-[110px] motion-safe:animate-float" />
+          </div>
+          <div aria-hidden data-parallax className="pointer-events-none absolute -bottom-32 -left-16">
+            <div className="w-[360px] h-[360px] rounded-full bg-brandGold/10 blur-[100px] motion-safe:animate-floatSlow" />
+          </div>
+          <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-60" />
+
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-14 sm:pt-14 sm:pb-16 font-body grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
+            <div>
+              <Image
+                data-hero-item
+                style={{ animationDelay: "0ms" }}
+                src="/logo.png"
+                alt="Southern Automotive Group"
+                width={560}
+                height={265}
+                className="h-14 sm:h-16 w-auto mb-5"
+                priority
+              />
+              <p data-hero-item
+                style={{ animationDelay: "80ms" }} className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">
+                Clayton, Georgia · Rabun County
+              </p>
+              <h1
+                data-hero-item
+                style={{ animationDelay: "160ms" }}
+                className="font-display text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.08] text-white"
+              >
+                Vehicles worth owning, and people worth trusting.
+              </h1>
+              <p data-hero-item
+                style={{ animationDelay: "240ms" }} className="mt-4 text-base sm:text-lg max-w-xl text-[#C9D0DE]">
+                Owner-operated, no games, no markup surprises — just solid vehicles, inspected and
+                priced fair, backed by people who&apos;ll answer the phone.
+              </p>
+              <div data-hero-item
+                style={{ animationDelay: "320ms" }}>
+                <HeroSearch />
+              </div>
+            </div>
+
+            {featured && (
+              <div data-hero-item
+                style={{ animationDelay: "400ms" }} className="relative">
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute -inset-6 rounded-[32px] bg-brandOrange/25 blur-3xl"
+                />
+                <Link
+                  href={`/inventory/${featured.id}`}
+                  className="group relative block rounded-2xl overflow-hidden border border-white/15 bg-navy900/60 backdrop-blur-sm shadow-2xl transition-transform duration-500 hover:-translate-y-1.5 focus-ring"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={featured.image}
+                      alt={`${featured.year} ${featured.make} ${featured.model}`}
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 45vw"
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      priority
+                    />
+                    <div
+                      aria-hidden
+                      className="absolute inset-0 bg-gradient-to-t from-navy950/90 via-navy950/10 to-transparent"
+                    />
+                    <span className="absolute top-4 left-4 text-[11px] font-bold uppercase tracking-[0.14em] px-2.5 py-1.5 rounded-full bg-brandOrange text-white">
+                      Just arrived
+                    </span>
+                  </div>
+                  <div className="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between gap-4">
+                    <div>
+                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brandGold mb-1">
+                        On the lot now
+                      </p>
+                      <h2 className="font-display text-xl sm:text-2xl font-semibold text-white leading-tight">
+                        {featured.year} {featured.make} {featured.model}
+                      </h2>
+                      <p className="text-sm text-[#C9D0DE] mt-0.5">
+                        {featured.miles.toLocaleString()} mi · ${featured.price.toLocaleString()}
+                      </p>
+                    </div>
+                    <span className="shrink-0 text-sm font-semibold text-white flex items-center gap-1.5 transition-transform duration-300 group-hover:translate-x-1">
+                      View <span aria-hidden>→</span>
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            )}
+          </div>
+
+          <div
+            aria-hidden
+            className="relative z-10 hidden sm:flex justify-center pb-6 motion-safe:animate-bounce text-white/40"
+          >
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M12 5v14M5 12l7 7 7-7" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </div>
+        </HeroFX>
       </section>
 
       <TrustStrip />
 
-      <CTABanner
-        title="Ready to find your next vehicle?"
-        subtitle="Browse what's on the lot right now, or call and we'll help you find the right fit."
-        primaryLabel="Browse Inventory"
-        primaryHref="/inventory"
-      />
-
-      <section className="py-16 bg-bg">
+      <section className="pt-16 pb-14 bg-bg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6">
+          {/* InventoryClient reveals its own header and grid — wrapping it in
+              another Reveal would fade the same cards twice. */}
           <InventoryClient vehicles={vehicles} full={false} />
         </div>
       </section>
 
-      <section className="py-16 bg-bg">
+      <section className="pt-2 pb-16 bg-bg">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 font-body">
-          <SectionEyebrow>The process</SectionEyebrow>
-          <h2 className="font-display text-3xl font-semibold mb-10 text-navy900">How buying here works</h2>
-          <div className="grid sm:grid-cols-3 gap-8">
+          <Reveal>
+            <SectionEyebrow>The process</SectionEyebrow>
+            <h2 className="font-display text-3xl font-semibold mb-10 text-navy900">How buying here works</h2>
+          </Reveal>
+          <Reveal as="div" stagger className="grid sm:grid-cols-3 gap-5">
             {STEPS.map((s) => (
-              <div key={s.step} className="flex flex-col gap-2">
-                <span className="font-display text-3xl font-semibold text-brandOrange">{s.step}</span>
-                <h3 className="font-display text-lg font-semibold text-navy900">{s.title}</h3>
+              <div
+                key={s.step}
+                className="group relative flex flex-col gap-2 p-6 rounded-xl bg-white border border-borderTan transition-all duration-300 hover:-translate-y-1 hover:shadow-cardHover hover:border-brandOrange/40"
+              >
+                <span className="w-9 h-9 rounded-lg flex items-center justify-center bg-brandOrange/10 text-brandOrange font-display text-base font-semibold transition-colors duration-300 group-hover:bg-brandOrange group-hover:text-white">
+                  {s.step}
+                </span>
+                <h3 className="font-display text-lg font-semibold text-navy900 mt-1">{s.title}</h3>
                 <p className="text-sm leading-relaxed text-muted">{s.body}</p>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
       <section className="py-16 bg-navy900">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 font-body">
-          <div className="flex items-center justify-between mb-8">
+          <Reveal className="flex items-center justify-between mb-8">
             <div>
               <SectionEyebrow>Word around town</SectionEyebrow>
               <h2 className="font-display text-3xl font-semibold text-white">What customers say</h2>
@@ -78,16 +176,19 @@ export default async function HomePage() {
             <Link href="/testimonials" className="text-sm font-semibold flex items-center gap-1 focus-ring whitespace-nowrap text-brandGold">
               See all →
             </Link>
-          </div>
-          <div className="grid sm:grid-cols-3 gap-5">
+          </Reveal>
+          <Reveal as="div" stagger className="grid sm:grid-cols-3 gap-5">
             {TESTIMONIALS.map((t, i) => (
-              <div key={i} className="rounded-[10px] p-5 flex flex-col gap-3 bg-navy700">
+              <div
+                key={i}
+                className="rounded-[10px] p-5 flex flex-col gap-3 bg-navy700 transition-all duration-300 hover:-translate-y-1 hover:shadow-glow"
+              >
                 <StarRow count={t.rating} />
                 <p className="text-sm leading-relaxed text-[#C9D0DE]">&quot;{t.quote}&quot;</p>
                 <span className="text-sm font-semibold text-brandGold">— {t.name}</span>
               </div>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 
