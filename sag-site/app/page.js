@@ -21,9 +21,6 @@ const STEPS = [
 
 export default async function HomePage() {
   const vehicles = await getVehicles();
-  // The hero showcases a real photographed vehicle; placeholder-image listings
-  // would just render the logo card again, so fall back to no showcase at all.
-  const featured = vehicles.find((v) => v.image);
 
   return (
     <>
@@ -39,87 +36,39 @@ export default async function HomePage() {
           </div>
           <div aria-hidden className="pointer-events-none absolute inset-0 bg-grain mix-blend-overlay opacity-60" />
 
-          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-12 pb-14 sm:pt-14 sm:pb-16 font-body grid lg:grid-cols-[1.05fr_0.95fr] gap-10 lg:gap-12 items-center">
-            <div>
-              <Image
-                data-hero-item
-                style={{ animationDelay: "0ms" }}
-                src="/logo.png"
-                alt="Southern Automotive Group"
-                width={560}
-                height={265}
-                className="h-14 sm:h-16 w-auto mb-5"
-                priority
-              />
-              <p data-hero-item
-                style={{ animationDelay: "80ms" }} className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">
-                Clayton, Georgia · Rabun County
-              </p>
-              <h1
-                data-hero-item
-                style={{ animationDelay: "160ms" }}
-                className="font-display text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.08] text-white"
-              >
-                Vehicles worth owning, and people worth trusting.
-              </h1>
-              <p data-hero-item
-                style={{ animationDelay: "240ms" }} className="mt-4 text-base sm:text-lg max-w-xl text-[#C9D0DE]">
-                Owner-operated, no games, no markup surprises — just solid vehicles, inspected and
-                priced fair, backed by people who&apos;ll answer the phone.
-              </p>
-              <div data-hero-item
-                style={{ animationDelay: "320ms" }}>
-                <HeroSearch />
-              </div>
+          <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-16 pb-16 sm:pt-20 sm:pb-20 font-body">
+           <div className="max-w-2xl">
+            <Image
+              data-hero-item
+              style={{ animationDelay: "0ms" }}
+              src="/logo.png"
+              alt="Southern Automotive Group"
+              width={560}
+              height={265}
+              className="h-14 sm:h-16 w-auto mb-5"
+              priority
+            />
+            <p data-hero-item
+              style={{ animationDelay: "80ms" }} className="text-sm font-semibold tracking-widest uppercase mb-3 text-brandGold">
+              Clayton, Georgia · Rabun County
+            </p>
+            <h1
+              data-hero-item
+              style={{ animationDelay: "160ms" }}
+              className="font-display text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.08] text-white"
+            >
+              Vehicles worth owning, and people worth trusting.
+            </h1>
+            <p data-hero-item
+              style={{ animationDelay: "240ms" }} className="mt-4 text-base sm:text-lg max-w-xl text-[#C9D0DE]">
+              Owner-operated, no games, no markup surprises — just solid vehicles, inspected and
+              priced fair, backed by people who&apos;ll answer the phone.
+            </p>
+            <div data-hero-item
+              style={{ animationDelay: "320ms" }}>
+              <HeroSearch />
             </div>
-
-            {featured && (
-              <div data-hero-item
-                style={{ animationDelay: "400ms" }} className="relative">
-                <div
-                  aria-hidden
-                  className="pointer-events-none absolute -inset-6 rounded-[32px] bg-brandOrange/25 blur-3xl"
-                />
-                <Link
-                  href={`/inventory/${featured.id}`}
-                  className="group relative block rounded-2xl overflow-hidden border border-white/15 bg-navy900/60 backdrop-blur-sm shadow-2xl transition-transform duration-500 hover:-translate-y-1.5 focus-ring"
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <Image
-                      src={featured.image}
-                      alt={`${featured.year} ${featured.make} ${featured.model}`}
-                      fill
-                      sizes="(max-width: 1024px) 100vw, 45vw"
-                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      priority
-                    />
-                    <div
-                      aria-hidden
-                      className="absolute inset-0 bg-gradient-to-t from-navy950/90 via-navy950/10 to-transparent"
-                    />
-                    <span className="absolute top-4 left-4 text-[11px] font-bold uppercase tracking-[0.14em] px-2.5 py-1.5 rounded-full bg-brandOrange text-white">
-                      Just arrived
-                    </span>
-                  </div>
-                  <div className="absolute bottom-0 inset-x-0 p-5 flex items-end justify-between gap-4">
-                    <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-brandGold mb-1">
-                        On the lot now
-                      </p>
-                      <h2 className="font-display text-xl sm:text-2xl font-semibold text-white leading-tight">
-                        {featured.year} {featured.make} {featured.model}
-                      </h2>
-                      <p className="text-sm text-[#C9D0DE] mt-0.5">
-                        {featured.miles.toLocaleString()} mi · ${featured.price.toLocaleString()}
-                      </p>
-                    </div>
-                    <span className="shrink-0 text-sm font-semibold text-white flex items-center gap-1.5 transition-transform duration-300 group-hover:translate-x-1">
-                      View <span aria-hidden>→</span>
-                    </span>
-                  </div>
-                </Link>
-              </div>
-            )}
+           </div>
           </div>
 
           <div
