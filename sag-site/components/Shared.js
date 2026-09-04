@@ -5,8 +5,8 @@ import Reveal from "@/components/motion/Reveal";
 export function TrustStrip() {
   const items = [
     { label: "Multi-Point Vehicle Inspections", Icon: ShieldCheck },
-    { label: "Transparent Market Pricing", Icon: Wallet },
-    { label: "Financing Options for Almost Every Credit Situation", Icon: ClipboardCheck },
+    { label: "Transparent Pricing", Icon: Wallet },
+    { label: "Flexable Financing Options", Icon: ClipboardCheck },
     { label: "Family Owned, Customer Focused", Icon: Users },
   ];
   return (
