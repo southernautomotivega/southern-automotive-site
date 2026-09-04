@@ -61,8 +61,8 @@ export default async function HomePage() {
             </h1>
             <p data-hero-item
               style={{ animationDelay: "240ms" }} className="mt-4 text-base sm:text-lg max-w-xl text-[#C9D0DE]">
-              Owner-operated, no games, no markup surprises — just solid vehicles, inspected and
-              priced fair, backed by people who&apos;ll answer the phone.
+              Owner-operated, no games, no markup surprises — solid vehicles, inspected,
+              priced fair, backed by people who answer the phone.
             </p>
             <div data-hero-item
               style={{ animationDelay: "320ms" }}>
