@@ -57,7 +57,7 @@ export default async function HomePage() {
               style={{ animationDelay: "160ms" }}
               className="font-display text-4xl sm:text-5xl xl:text-6xl font-semibold leading-[1.08] text-white"
             >
-              Vehicles worth owning, and people worth trusting.
+              Vehicles worth owning, people worth trusting.
             </h1>
             <p data-hero-item
               style={{ animationDelay: "240ms" }} className="mt-4 text-base sm:text-lg max-w-xl text-[#C9D0DE]">
